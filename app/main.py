@@ -1,16 +1,8 @@
-from fastapi import FastAPI, status
-from pydantic import BaseModel,Field
-from typing import Annotated
-
-class EchoRequest(BaseModel):
-    message: Annotated[str, Field(min_length =1, max_length =1000)]
-
-class EchoResponse(BaseModel):
-    echo: str
+from fastapi import FastAPI
+from app.schemas import EchoRequest,EchoResponse
 
 
-
-app = FastAPI(title = "LLM_summarizer")
+app = FastAPI(title = "docstream")
 
 @app.get("/health")
 async def health():
