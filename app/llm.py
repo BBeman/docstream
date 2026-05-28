@@ -7,7 +7,7 @@ client = AsyncAnthropic(
 
 
 async def summarise(text : str, max_words: int = 100) -> str:
-    prompt = f"summarize in a total word count of: {max_words}:\n\n{text}. make sure to sound cute when saying it"
+    prompt = f"summarize {text} in a total word count of: {max_words}."
     message = await client.messages.create(
         max_tokens=1024,
         messages=[
